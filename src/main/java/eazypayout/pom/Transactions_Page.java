@@ -1,13 +1,11 @@
 package eazypayout.pom;
 
-import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Loads_Page {
+public class Transactions_Page {
 
 	// Two cards
 	@FindBy(xpath = "//b[text()='Available Balance']/following-sibling::div")
@@ -19,15 +17,13 @@ public class Loads_Page {
 	@FindBy(xpath = "(//b[text()='Account Details']/following-sibling::div)[2]")
 	private WebElement ifsc;
 
-	
+//		Initialization
 
-//	Initialization
+	public Transactions_Page(WebDriver driver) {
+			PageFactory.initElements(driver, this);
+		}
 
-	public Loads_Page(WebDriver driver) {
-		PageFactory.initElements(driver, this);
-	}
-
-//	Utilization
+//		Utilization
 
 	// Two cards
 	public String getAvlBlc_asString() {
