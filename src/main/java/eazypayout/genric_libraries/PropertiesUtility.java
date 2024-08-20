@@ -1,4 +1,4 @@
-package genricLibraries;
+package eazypayout.genric_libraries;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

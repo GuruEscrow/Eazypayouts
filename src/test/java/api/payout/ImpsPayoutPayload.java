@@ -26,8 +26,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import DataBase.MySqlConnection;
 import DataBase.MySqlConnectionForPayotInsert;
-import genricLibraries.PropertiesUtility;
-import genricLibraries.UtilitiesPath;
+import eazypayout.genric_libraries.PropertiesUtility;
+import eazypayout.genric_libraries.UtilitiesPath;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

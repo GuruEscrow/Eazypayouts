@@ -1,4 +1,4 @@
-package genricLibraries;
+package eazypayout.genric_libraries;
 
 public interface UtilitiesPath {
 

@@ -1,4 +1,4 @@
-package genricLibraries;
+package eazypayout.genric_libraries;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +48,8 @@ public class WebDriverUtility {
 
 			// Create ChromeOptions and set the profile path
 			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("user-data-dir=C:\\Users\\Guruprasad V\\AppData\\Local\\Google\\Chrome\\User Data");
+			chromeOptions
+					.addArguments("user-data-dir=C:\\Users\\Guruprasad V\\AppData\\Local\\Google\\Chrome\\User Data");
 			chromeOptions.addArguments("--profile-directory=Profile 3");
 			chromeOptions.addArguments("--remote-allow-origins=*");
 

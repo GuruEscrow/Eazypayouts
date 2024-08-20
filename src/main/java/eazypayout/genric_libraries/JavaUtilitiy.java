@@ -1,4 +1,4 @@
-package genricLibraries;
+package eazypayout.genric_libraries;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
