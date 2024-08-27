@@ -8,8 +8,14 @@ import org.openqa.selenium.support.PageFactory;
 public class SideNav_Component {
 
 //	Declaration
+	// Logo
+	@FindBy(className = "eazypayouts-2-1-icon2")
+	private WebElement sideNavLogo;
 
-	// Side Navigation
+	@FindBy(className = "group-icon2")
+	private WebElement sideNavLogoName;
+
+	// Menus
 	@FindBy(id = "load-btn")
 	private WebElement loads;
 
@@ -37,7 +43,17 @@ public class SideNav_Component {
 	}
 
 //	Utilization
-	// Side navigation
+
+	// Logo
+	public String getSidNavLogoFormat() {
+		return sideNavLogo.getAttribute("src");
+	}
+
+	public String getSidNavLogoNameFormat() {
+		return sideNavLogoName.getAttribute("src");
+	}
+
+	// Menu
 	public void clickOnLoadsMenu() {
 		loads.click();
 	}
