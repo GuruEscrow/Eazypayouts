@@ -44,7 +44,7 @@ public class WebDriverUtility {
 
 		case "chrome":
 
-			WebDriverManager.chromedriver().setup();
+			// WebDriverManager.chromedriver().setup();
 
 			// Create ChromeOptions and set the profile path
 			ChromeOptions chromeOptions = new ChromeOptions();
@@ -72,7 +72,7 @@ public class WebDriverUtility {
 			driver = new EdgeDriver(edgeOptions);
 			break;
 
-		case "chromeProfile":
+		case "chromewoprofile":
 			WebDriverManager.chromedriver().setup();
 
 			driver = new ChromeDriver();
@@ -298,6 +298,26 @@ public class WebDriverUtility {
 			alert.accept();
 		else
 			alert.dismiss();
+	}
+
+	/*
+	 * This method is used to fetch the alert message
+	 */
+	public String getAlertMessage() {
+		Alert alert = driver.switchTo().alert();
+		return alert.getText();
+	}
+
+	/*
+	 * This method is used to check the alert pop is appeared or not
+	 */
+	public boolean isAlertpopupPresent() {
+		try {
+			driver.switchTo().alert();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	/*

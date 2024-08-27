@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-08-27T17:34:36 IST" name="Default suite" finished-at="2024-08-27T17:35:23 IST" duration-ms="46434">
+    <groups>
+    </groups>
+    <test started-at="2024-08-27T17:34:36 IST" name="Default test" finished-at="2024-08-27T17:35:23 IST" duration-ms="46434">
+      <class name="eazypayout.test.LoginPageTest">
+        <test-method is-config="true" signature="createAllInstance()[pri:0, instance:eazypayout.test.LoginPageTest@5b218417]" started-at="2024-08-27T17:34:36 IST" name="createAllInstance" finished-at="2024-08-27T17:34:37 IST" duration-ms="481" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAllInstance -->
+        <test-method is-config="true" signature="browserSetUp()[pri:0, instance:eazypayout.test.LoginPageTest@5b218417]" started-at="2024-08-27T17:34:37 IST" name="browserSetUp" finished-at="2024-08-27T17:34:40 IST" duration-ms="3244" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserSetUp -->
+        <test-method signature="testInvalidInputInMobNumField()[pri:0, instance:eazypayout.test.LoginPageTest@5b218417]" started-at="2024-08-27T17:34:40 IST" name="testInvalidInputInMobNumField" finished-at="2024-08-27T17:35:22 IST" duration-ms="42397" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInvalidInputInMobNumField -->
+        <test-method is-config="true" signature="closeTheBrowser()[pri:0, instance:eazypayout.test.LoginPageTest@5b218417]" started-at="2024-08-27T17:35:22 IST" name="closeTheBrowser" finished-at="2024-08-27T17:35:23 IST" duration-ms="281" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeTheBrowser -->
+      </class> <!-- eazypayout.test.LoginPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
