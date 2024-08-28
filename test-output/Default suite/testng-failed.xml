@@ -5,8 +5,8 @@
     <classes>
       <class name="eazypayout.test.LoginPageTest">
         <methods>
+          <include name="testInvalidInputInOTPField"/>
           <include name="createAllInstance"/>
-          <include name="testInvalidInputInMobNumField"/>
           <include name="closeTheBrowser"/>
           <include name="browserSetUp"/>
         </methods>
