@@ -35,6 +35,9 @@ public class Login_Page {
 	@FindBy(xpath = "//button[text()='Verify OTP & Login']")
 	private WebElement verify_otp_button;
 	
+	@FindBy(className = "css-sqgx1g")
+	private WebElement invalidOTPerrorMsg;
+	
 //	Initialization
 
 	public Login_Page(WebDriver driver) {
@@ -78,9 +81,16 @@ public class Login_Page {
 		return otp_input;
 		
 	}
+	
+	public WebElement otpFieldElement() {
+		return otp_input;
+	}
 
 	public void clickOnverify_otpbutton() {
 		verify_otp_button.click();
 	}
 
+	public String getInvalidOtpErrMsg() {
+		return invalidOTPerrorMsg.getText();
+	}
 }

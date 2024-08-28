@@ -217,5 +217,123 @@ public class LoginPageTest extends BaseClassWithProfile {
 		validate.assertAll();
 	}
 //	Should get the proper error message according to input
-	
+
+//	Testing the OTP field against invalid input criteria 
+	@Test
+	public void testInvalidInputInOTPField() throws InterruptedException {
+		SoftAssert validate = new SoftAssert();
+		TimeUnit.SECONDS.sleep(3);
+
+		// Validate the Login page, background image format and logo format
+		validate.assertEquals(login.getPageHeader_asString(), "Welcome to your Eazy Payouts",
+				"Login page not open for given URL");
+		validate.assertTrue(
+				login.getBackGformat_asString().contains("avif") || login.getBackGformat_asString().contains("webp"),
+				"Background impage format is invalid in Login page");
+		validate.assertTrue(login.getLogoFormat().contains("svg"), "Logo format is invalid in Login page");
+
+		// Validating the mobile number field for alphanumeric characters
+		TimeUnit.SECONDS.sleep(3);
+		login.sendInputToMobNumIn(excel.readDataFromExcel("data", 1, 1));
+		login.clickOnGetOTPButton();
+		TimeUnit.SECONDS.sleep(3);
+
+		// Validate the OTP verification page background image format and logo format
+		validate.assertEquals(login.getPageHeader_asString(), "Welcome to your Eazy Payouts",
+				"Login page not open for given URL");
+		validate.assertTrue(
+				login.getBackGformat_asString().contains("avif") || login.getBackGformat_asString().contains("webp"),
+				"Background image format is invalid in OTP verification Screen");
+		validate.assertTrue(login.getLogoFormat().contains("svg"), "Logo format is invalid in OTP verification page");
+
+		// Validate the OTP field for numerical entries in it (numerical invalid OTP)
+		login.getOTPInputElement().sendKeys(excel.readDataFromExcel("data", 13, 1));
+		String otpNumerical = login.otpFieldElement().getAttribute("value");
+		validate.assertEquals(otpNumerical.length(), 6, "Error: @OTPNumerical entries length is not matching");
+		validate.assertEquals(otpNumerical, excel.readDataFromExcel("data", 13, 1),
+				"Error: @OTPNumerical entries entered OTP mismatch with actual");
+		validate.assertEquals(login.getInvalidOtpErrMsg(), "",
+				"Error: @OTPNumerical entries showing err msg without clicking on verify OTP");
+		login.clickOnverify_otpbutton();
+		TimeUnit.SECONDS.sleep(2);
+		validate.assertEquals(login.getInvalidOtpErrMsg(), "Incorrect OTP. Please try again.",
+				"Error: @OTPNumerical entries getting wrong error msg");
+
+		// Validate the OTP field for alphanumeric entries in it
+		login.getOTPInputElement().sendKeys(Keys.chord(Keys.CONTROL, "a"), excel.readDataFromExcel("data", 14, 1));
+		String otpAlphanumeric = login.otpFieldElement().getAttribute("value");
+		validate.assertEquals(otpAlphanumeric.length(), 6, "Error: @OTPAlphanumeric entries length is not matching");
+		validate.assertEquals(otpAlphanumeric, excel.readDataFromExcel("data", 14, 1),
+				"Error: @OTPAlphanumeric entries entered OTP mismatch with actual");
+		// validate.assertEquals(login.getInvalidOtpErrMsg(), "","Error:
+		// @OTPAlphanumeric entries showing err msg without clicking on verify OTP");
+		login.clickOnverify_otpbutton();
+		TimeUnit.SECONDS.sleep(2);
+		validate.assertEquals(login.getInvalidOtpErrMsg(), "Incorrect OTP. Please try again.",
+				"Error: @OTPAlphanumeric entries getting wrong error msg");
+
+		// Validate the OTP field for special characters in it
+		login.getOTPInputElement().sendKeys(Keys.chord(Keys.CONTROL, "a"), excel.readDataFromExcel("data", 15, 1));
+		String otpSpecialCharacter = login.otpFieldElement().getAttribute("value");
+		validate.assertEquals(otpSpecialCharacter.length(), 6,
+				"Error: @OTPSpecialCharacter entries length is not matching");
+		validate.assertEquals(otpSpecialCharacter, excel.readDataFromExcel("data", 15, 1),
+				"Error: @OTPSpecialCharacter entries entered OTP mismatch with actual");
+		// validate.assertEquals(login.getInvalidOtpErrMsg(), "","Error:
+		// @OTPSpecialCharacter entries showing err msg without clicking on verify
+		// OTP");
+		login.clickOnverify_otpbutton();
+		TimeUnit.SECONDS.sleep(2);
+		validate.assertEquals(login.getInvalidOtpErrMsg(), "Incorrect OTP. Please try again.",
+				"Error: @OTPSpecialCharacter entries getting wrong error msg");
+
+		// Validate the OTP field for more than 6 entries
+		login.getOTPInputElement().sendKeys(Keys.chord(Keys.CONTROL, "a"), excel.readDataFromExcel("data", 16, 1));
+		String otpMoreThan6 = login.otpFieldElement().getAttribute("value");
+		validate.assertEquals(otpMoreThan6.length(), 6, "Error: @OTPMoreThan6 entries length is not matching");
+		validate.assertEquals(otpMoreThan6, excel.readDataFromExcel("data", 16, 1).substring(0, otpMoreThan6.length()),
+				"Error: @OTPMoreThan6 entries entered OTP mismatch with actual");
+		// validate.assertEquals(login.getInvalidOtpErrMsg(), "","Error: @OTPMoreThan6
+		// entries showing err msg without clicking on verify OTP");
+		login.clickOnverify_otpbutton();
+		TimeUnit.SECONDS.sleep(2);
+		validate.assertEquals(login.getInvalidOtpErrMsg(), "Incorrect OTP. Please try again.",
+				"Error: @OTPMoreThan6 entries getting wrong error msg");
+
+		// Validate the OTP field for Less than 6 entries
+		login.getOTPInputElement().sendKeys(Keys.chord(Keys.CONTROL, "a"), excel.readDataFromExcel("data", 17, 1));
+		String otpLessThan6 = login.otpFieldElement().getAttribute("value");
+		validate.assertEquals(otpLessThan6.length(), 5, "Error: @OTPLessThan6 entries length is not matching");
+		validate.assertEquals(otpLessThan6, excel.readDataFromExcel("data", 17, 1),
+				"Error: @OTPLessThan6 entries entered OTP mismatch with actual");
+		// validate.assertEquals(login.getInvalidOtpErrMsg(), "","Error: @OTPLessThan6
+		// entries showing err msg without clicking on verify OTP");
+		login.clickOnverify_otpbutton();
+		TimeUnit.SECONDS.sleep(2);
+		validate.assertEquals(login.getInvalidOtpErrMsg(), "Incorrect OTP. Please try again.",
+				"Error: @OTPLessThan6 entries getting wrong error msg");
+
+		// Validate the OTP field for space entry in it
+		login.getOTPInputElement().sendKeys(Keys.chord(Keys.CONTROL, "a"), "        ");
+		String otpSpaceEntry = login.otpFieldElement().getAttribute("value");
+		validate.assertEquals(otpSpaceEntry.length(), 0, "Error: @OTPSpace entries length is not matching");
+		validate.assertEquals(otpSpaceEntry, "", "Error: @OTPSpace entries entered OTP mismatch with actual");
+		// validate.assertEquals(login.getInvalidOtpErrMsg(), "","Error: @OTPSpace
+		// entries showing err msg without clicking on verify OTP");
+		login.clickOnverify_otpbutton();
+		TimeUnit.SECONDS.sleep(2);
+		validate.assertEquals(login.getInvalidOtpErrMsg(), "Incorrect OTP. Please try again.",
+				"Error: @OTPSpace entries getting wrong error msg");
+
+		// Validate the OTP field for empty entry in it
+		login.getOTPInputElement().sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+		login.clickOnverify_otpbutton();
+		TimeUnit.SECONDS.sleep(2);
+		validate.assertEquals(login.getInvalidOtpErrMsg(), "Incorrect OTP. Please try again.",
+				"Error: @OTPSpace entries getting wrong error msg");
+
+		TimeUnit.SECONDS.sleep(3);
+		validate.assertAll();
+	}
+//	Should get the proper messages for invalid entries in OTP field
 }

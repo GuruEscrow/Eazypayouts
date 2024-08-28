@@ -77,6 +77,12 @@ public class WebDriverUtility {
 
 			driver = new ChromeDriver();
 			break;
+			
+		case "edgewoprofile":
+			WebDriverManager.edgedriver().setup();
+			
+			driver = new EdgeDriver();
+			break;
 
 		default:
 			System.out.println("invalid browser info");
