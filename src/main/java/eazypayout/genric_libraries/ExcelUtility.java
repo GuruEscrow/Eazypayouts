@@ -72,7 +72,7 @@ public class ExcelUtility {
 	 */
 	public Map<String, String> readDataFromExcel(String sheetName) {
 
-		Map<String, String> map = new HashMap<>();
+		Map<String, String> map = new HashMap<String,String>();
 		df = new DataFormatter();
 		Sheet sheet = workbook.getSheet(sheetName);
 
