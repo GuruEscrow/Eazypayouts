@@ -2,12 +2,12 @@
 <testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-31T17:39:15 IST" name="Default suite" finished-at="2024-08-31T17:39:19 IST" duration-ms="4122">
+  <suite started-at="2024-11-21T16:42:25 IST" name="Default suite" finished-at="2024-11-21T16:42:29 IST" duration-ms="4022">
     <groups>
     </groups>
-    <test started-at="2024-08-31T17:39:15 IST" name="Default test" finished-at="2024-08-31T17:39:19 IST" duration-ms="4122">
+    <test started-at="2024-11-21T16:42:25 IST" name="Default test" finished-at="2024-11-21T16:42:29 IST" duration-ms="4022">
       <class name="api.canarabank.test.Account_stats">
-        <test-method signature="getAvlBalance()[pri:0, instance:api.canarabank.test.Account_stats@702657cc]" started-at="2024-08-31T17:39:15 IST" name="getAvlBalance" finished-at="2024-08-31T17:39:19 IST" duration-ms="4089" status="PASS">
+        <test-method signature="getAvlBalance()[pri:0, instance:api.canarabank.test.Account_stats@702657cc]" started-at="2024-11-21T16:42:25 IST" name="getAvlBalance" finished-at="2024-11-21T16:42:29 IST" duration-ms="3977" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getAvlBalance -->

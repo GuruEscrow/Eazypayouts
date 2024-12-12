@@ -29,7 +29,7 @@ public class CanarabankLive {
   /** part of the request payload that needs to be encrypted */
   // private static final String DATA_TO_ENCRYPT = "{\"Authorization\":\"Basic
   // MzI1MjczNzkxQVBJOjRhOGE0OGEyNGE0MWEwYTk0YTg3YTgzYTExMg==\",\"acctNumber\":\"120029248620 \",\"customerID\":\"325273791\"}";
-
+   //120029248620
   /** URL to invoke the API */
 
   public static final String CLIENT_PRIVATE_KEY = "-----BEGIN PRIVATE KEY-----"
@@ -186,7 +186,7 @@ public class CanarabankLive {
     com.google.gson.JsonObject json = JsonParser.parseString(PAY_LOAD_PLAIN).getAsJsonObject();
 
     String sign = sign(json.toString());
-
+    
     System.out.println(DATA_TO_ENCRYPT);
     System.out.println("Payload With Encrypted Body");
     System.out.println(payload);
@@ -275,6 +275,7 @@ public class CanarabankLive {
 
     String sign = sign(json.toString());
     System.out.println("Signature : " + sign);
+    System.out.println("plain payload:\n"+PAY_LOAD_PLAIN);
     System.out.println(DATA_TO_ENCRYPT);
     System.out.println("Payload With Encrypted Body");
     System.out.println(payload);
@@ -343,6 +344,7 @@ public class CanarabankLive {
     String response = invokeUniRequest(url, payload, sign);
     try {
       JsonObject responseObj = JsonParser.parseString(response).getAsJsonObject();
+     
       if (responseObj.get("Response") != null) {
         String encr = responseObj.getAsJsonObject("Response").getAsJsonObject("body").get("encryptData").toString();
         System.out.println(decrypt(encr.replaceAll("\"", "")));

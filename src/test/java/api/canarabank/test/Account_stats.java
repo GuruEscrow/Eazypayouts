@@ -36,8 +36,8 @@ public class Account_stats {
 		CanarabankLive client = new CanarabankLive();
 
 		try {
-			String startDate = "31-08-2024";
-			String endDate = "31-08-2024";
+			String startDate = "06-09-2024";
+			String endDate = "06-09-2024";
 
 			client.getStatement(startDate,endDate );
 			

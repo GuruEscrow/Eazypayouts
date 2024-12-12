@@ -22,9 +22,9 @@ public class Neft_Test {
 			String accName = "Guruprasad";
 			String accNum = "4449682902";
 			String ifscNum = "KKBK0008061";
-			String amt = "1.2";
+			String amt = "1";
 			String txnNote = "GuruImpsTest";
-			String date = "31-08-2024";
+			String date = "06-09-2024";
 
 			client.neftTransfer(accName, accNum, ifscNum, amt, txnNote, date);
 			
@@ -42,7 +42,7 @@ public class Neft_Test {
 		CanarabankLive client = new CanarabankLive();
 
 		try {
-			client.neftStatus("PHED1725103727959");
+			client.neftStatus("PHED1725100466647");
 			
 			//Printing the timestamp
 			DateTimeFormatter format=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

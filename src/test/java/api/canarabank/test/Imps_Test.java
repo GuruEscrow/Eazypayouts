@@ -20,9 +20,9 @@ public class Imps_Test {
 		CanarabankLive client = new CanarabankLive();
 		try {
 			String accName = "Guruprasad";
-			String accNum = "4449682902";
-			String ifscNum = "KKBK0008061";
-			String amt = "1.8";
+			String accNum = "924020017800104";
+			String ifscNum = "UTIB0004575";
+			String amt = "1";
 			String txnNote = "GuruImpsTest";
 
 			client.impsTransfer(accName, accNum, ifscNum,amt , txnNote);
@@ -40,7 +40,7 @@ public class Imps_Test {
 		CanarabankLive client = new CanarabankLive();
 
 		try {
-			client.impsStatus("PHED1725104076930");
+			client.impsStatus("PHED1726727351350");
 			
 			//Printing the timestamp
 			DateTimeFormatter format=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
